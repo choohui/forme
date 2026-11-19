@@ -62,7 +62,7 @@ irm https://raw.githubusercontent.com/choohui/forme/main/install.ps1 | iex
 
 ### 3. LLM
 
-요약 · 추천 · AI 패널은 이 PC에 로그인한 Claude Code나 Codex CLI를 쓴다. API 키는 받지 않는다. 둘 다 없으면 "LLM 없이 쓰기"를 고른다. 나머지 기능은 그대로 쓴다.
+요약 · 추천 · AI 패널은 이 PC에 로그인한 Claude Code나 Codex CLI를 쓴다. 구독이 없으면 Claude API 키를 쓸 수 있다: Claude Code를 설치해 두고, 설정 › 키에 키를 넣은 뒤 설정 › 브리핑 · 리뷰 › AI에서 "Claude API 키"를 고른다(고른 곳만 쓴 만큼 과금). 아무것도 없으면 "LLM 없이 쓰기"를 고른다. 나머지 기능은 그대로 쓴다.
 
 ## 매일
 
