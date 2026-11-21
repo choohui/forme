@@ -9,10 +9,10 @@
 
 | 무엇 | 비고 |
 |---|---|
-| Windows 10(1809 이상) 또는 11, 64비트 | |
+| Windows 10(1809 이상) 또는 11, 64비트, 또는 macOS 13(Ventura) 이상 | Mac은 아래 "macOS에서 설치" |
 | 디스크 약 2 GB | Javis 받아쓰기 모델을 받으면 더 |
 | 인터넷 | 설치할 때 Node 패키지와 Python 도구를 받는다 |
-| Node.js 24, uv | 없으면 설치가 winget으로 받을지 묻는다 |
+| Node.js 24, uv | 없으면 설치가 winget(Mac은 Homebrew)으로 받을지 묻는다 |
 
 ## 설치
 
@@ -31,6 +31,25 @@ irm https://raw.githubusercontent.com/choohui/forme/main/install.ps1 | iex
 3. zip을 오래 둘 폴더에 풀고, 그 폴더에서 `powershell -NoProfile -ExecutionPolicy Bypass -File .\setup.ps1`.
 
 설치가 끝나면 브라우저에 **처음 안내**가 열린다.
+
+### macOS에서 설치
+
+> 지금 올라와 있는 판(20261119-58ae230)에는 Mac용 설치 파일이 아직 없다. 아래 한 줄은 다음 판부터 돈다.
+
+터미널을 열고(Spotlight에서 "터미널") 아래 한 줄을 붙여 넣는다.
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/choohui/forme/main/install.sh | bash
+```
+
+같은 zip을 받아 SHA-256을 맞춰 보고 `~/Library/Application Support/orchestrate`에 푼 뒤 `setup.sh`를 돌린다. 관리자 권한은 쓰지 않는다. 먼저 읽어 보려면 [install.sh](install.sh). Node.js·uv가 없으면 Homebrew로 설치할지 묻는다(Homebrew가 없으면 https://brew.sh 에서 먼저 설치한다).
+
+Mac에서 다른 점:
+
+- 키는 macOS 키체인에 들어간다.
+- 자동 시작은 launchd(로그인할 때, 매일 06:30)다. 손으로는 `bash scripts/start.sh` · `bash scripts/stop.sh --javis`.
+- 업데이트는 같은 한 줄을 다시 돌린다. 지우기는 설치 폴더에서 `bash uninstall.sh`.
+- Word·PowerPoint 파일을 PDF로 바꾸는 변환은 Windows의 Office를 쓰므로 Mac에서는 빠진다(PDF로 올리면 된다).
 
 ## 처음 안내에서 고르는 것
 
@@ -102,7 +121,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1
 
 - `data\`: DB, 로그, 매일 03:30의 백업(14개 유지).
 - `apps\javis\workspace\`: 강의 · 논문 · 탐구 파일.
-- 키: Windows 자격 증명 관리자(이 Windows 사용자 계정으로 암호화).
+- 키: Windows 자격 증명 관리자(이 Windows 사용자 계정으로 암호화). Mac은 로그인 키체인.
 
 이 저장소에는 빌드한 프로그램만 있다. 판마다 `orchestrate-<판>.zip`, 그 `.sha256`, `latest.json`(판과 해시)이 Releases에 올라온다.
 

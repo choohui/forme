@@ -1,0 +1,2 @@
+# install.sh runs on macOS through curl | bash: always LF
+*.sh text eol=lf
