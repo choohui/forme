@@ -34,8 +34,6 @@ irm https://raw.githubusercontent.com/choohui/forme/main/install.ps1 | iex
 
 ### macOS에서 설치
 
-> 지금 올라와 있는 판(20261119-58ae230)에는 Mac용 설치 파일이 아직 없다. 아래 한 줄은 다음 판부터 돈다.
-
 터미널을 열고(Spotlight에서 "터미널") 아래 한 줄을 붙여 넣는다.
 
 ```bash
